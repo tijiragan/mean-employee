@@ -1,0 +1,95 @@
+button.app-icon-button {
+    background-color: transparent;
+    border: none;
+    margin-top: 0.5%;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #787878 !important;
+}
+
+.app-sidenav {
+    padding: 20px;
+}
+
+.theme-button {
+    float: right;
+}
+
+.progress-bar {
+    margin-top: 10px;
+}
+
+.m2app-dark md-card {
+    background: rgb(46, 47, 49);
+    color: white !important;
+    min-height: 90vh;
+}
+
+.logo-stash img {
+    height: 50px;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+pre {
+    background-color: #dedede;
+    font-size: 17px;
+    text-align: justify;
+}
+
+.md-sidenav-container {
+    min-height: 100vh;
+}
+
+.side-nav-title {
+    vertical-align: super;
+    font-size: 20px;
+}
+
+.app-icon-button-sidenav {
+    margin-bottom: 15%;
+}
+
+.app-toolbar-menu-top {
+    float: left;
+    margin-right: 7px;
+}
+
+md-select {
+    margin-top: 1%;
+    margin-right: 2%;
+}
+
+md-input {
+    margin-right: 2%;
+}
+
+.app-sidenav {
+    text-align: center;
+}
+
+@media only screen and (max-width: 1000px) {
+    md-card {
+        overflow-x: scroll;
+    }
+    .addButton {
+        margin-left: 45%;
+    }
+    form {
+        overflow: hidden;
+        text-align: center;
+        padding-bottom: 1%;
+    }
+    md-input {
+        margin-bottom: 3%;
+    }
+    md-select {
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+    .formDiv {
+        margin-bottom: 5%;
+        padding-bottom: 2%;
+    }
+}

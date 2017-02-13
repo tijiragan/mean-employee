@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+/*@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';*/
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-size: 32px;
+}
+html{
+    font-size : 16px !important;
+}

@@ -1,0 +1,7 @@
+{
+    "insertEmployeeSuccess": "Employee Added Successfully",
+    "getEmployeeSuccess": "Employees fetched Successfully",
+    "deleteEmployeeSuccess": "Employee deleted Successfully",
+    "updateEmployeeSuccess": "Employee updated Successfully",
+    "InvalidPayLoad" : "Invalid Request Data"
+}

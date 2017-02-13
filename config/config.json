@@ -1,0 +1,374 @@
+{
+    "DEV": {
+        "appPort": "3000",
+        "globalRoute": "/app/v1",
+        "DB_CONFIG": {
+            "MONGO": {
+                "uri": "mongodb://edureka-project:edureka-project@ds141209.mlab.com:41209/edureka-db"
+            }
+        },
+        "EMPLOYEE_CREATE_PAYLOAD_SCHEMA": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "Example Employee Name"
+                },
+                "dob": {
+                    "type": "string",
+                    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+                    "maxLength": 19,
+                    "example": "1994-01-16"
+                },
+                "email": {
+                    "type": "string",
+                    "pattern": ".+\\@.+\\..+",
+                    "maxLength": 75,
+                    "example": "example@mail.com"
+                },
+                "department": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "exampleDeparment"
+                },
+                "gender": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "Male"
+                },
+                "age": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "23 years"
+                }
+            },
+            "required": [
+                "name",
+                "dob",
+                "email",
+                "department",
+                "gender",
+                "age"
+            ]
+
+        },
+        "EMPLOYEE_UPDATE_PAYLOAD_SCHEMA": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "pattern": ".+\\@.+\\..+",
+                    "maxLength": 75,
+                    "example": "example@mail.com"
+                },
+                "update": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "Example Employee Name Update"
+                        },
+                        "dob": {
+                            "type": "string",
+                            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+                            "maxLength": 19,
+                            "example": "1994-01-16"
+                        },
+                        "email": {
+                            "type": "string",
+                            "pattern": ".+\\@.+\\..+",
+                            "maxLength": 75,
+                            "example": "example@mail.com"
+                        },
+                        "department": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "exampleDeparment"
+                        },
+                        "gender": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "Male"
+                        },
+                        "age": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "23 years"
+                        }
+                    }
+                }
+            },
+            "required": [
+                "email",
+                "update"
+            ]
+        },
+        "EMPLOYEE_DELETE_PAYLOAD_SCHEMA": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "pattern": ".+\\@.+\\..+",
+                    "maxLength": 75,
+                    "example": "example@mail.com"
+                }
+            },
+            "required": [
+                "email"
+            ]
+        },
+        "secret": "edureka-crud",
+        "auth_token_expiry": 3600
+    },
+    "production": {
+        "appPort": "3000",
+        "globalRoute": "/app/v1",
+        "DB_CONFIG": {
+            "MONGO": {
+                "uri": "mongodb://edureka-project:edureka-project@ds141209.mlab.com:41209/edureka-db"
+            }
+        },
+        "EMPLOYEE_CREATE_PAYLOAD_SCHEMA": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "Example Employee Name"
+                },
+                "dob": {
+                    "type": "string",
+                    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+                    "maxLength": 19,
+                    "example": "1994-01-16"
+                },
+                "email": {
+                    "type": "string",
+                    "pattern": ".+\\@.+\\..+",
+                    "maxLength": 75,
+                    "example": "example@mail.com"
+                },
+                "department": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "exampleDeparment"
+                },
+                "gender": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "Male"
+                },
+                "age": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "23 years"
+                }
+            },
+            "required": [
+                "name",
+                "dob",
+                "email",
+                "department",
+                "gender",
+                "age"
+            ]
+
+        },
+        "EMPLOYEE_UPDATE_PAYLOAD_SCHEMA": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "pattern": ".+\\@.+\\..+",
+                    "maxLength": 75,
+                    "example": "example@mail.com"
+                },
+                "update": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "Example Employee Name Update"
+                        },
+                        "dob": {
+                            "type": "string",
+                            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+                            "maxLength": 19,
+                            "example": "1994-01-16"
+                        },
+                        "email": {
+                            "type": "string",
+                            "pattern": ".+\\@.+\\..+",
+                            "maxLength": 75,
+                            "example": "example@mail.com"
+                        },
+                        "department": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "exampleDeparment"
+                        },
+                        "gender": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "Male"
+                        },
+                        "age": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "23 years"
+                        }
+                    }
+                }
+            },
+            "required": [
+                "email",
+                "update"
+            ]
+        },
+        "EMPLOYEE_DELETE_PAYLOAD_SCHEMA": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "pattern": ".+\\@.+\\..+",
+                    "maxLength": 75,
+                    "example": "example@mail.com"
+                }
+            },
+            "required": [
+                "email"
+            ]
+        },
+        "secret": "edureka-crud",
+        "auth_token_expiry": 3600
+    },
+    "TEST": {
+        "appPort": "3001",
+        "globalRoute": "/app/v1",
+        "DB_CONFIG": {
+            "MONGO": {
+                "uri": "mongodb://edureka-project:edureka-project@ds141209.mlab.com:41209/edureka-db"
+            }
+        },
+        "EMPLOYEE_CREATE_PAYLOAD_SCHEMA": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "Example Employee Name"
+                },
+                "dob": {
+                    "type": "string",
+                    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+                    "maxLength": 19,
+                    "example": "1994-01-16"
+                },
+                "email": {
+                    "type": "string",
+                    "pattern": ".+\\@.+\\..+",
+                    "maxLength": 75,
+                    "example": "example@mail.com"
+                },
+                "department": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "exampleDeparment"
+                },
+                "gender": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "Male"
+                },
+                "age": {
+                    "type": "string",
+                    "minLength": 1,
+                    "example": "23 years"
+                }
+            },
+            "required": [
+                "name",
+                "dob",
+                "email",
+                "department",
+                "gender",
+                "age"
+            ]
+
+        },
+        "EMPLOYEE_UPDATE_PAYLOAD_SCHEMA": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "pattern": ".+\\@.+\\..+",
+                    "maxLength": 75,
+                    "example": "example@mail.com"
+                },
+                "update": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "Example Employee Name Update"
+                        },
+                        "dob": {
+                            "type": "string",
+                            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+                            "maxLength": 19,
+                            "example": "1994-01-16"
+                        },
+                        "email": {
+                            "type": "string",
+                            "pattern": ".+\\@.+\\..+",
+                            "maxLength": 75,
+                            "example": "example@mail.com"
+                        },
+                        "department": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "exampleDeparment"
+                        },
+                        "gender": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "Male"
+                        },
+                        "age": {
+                            "type": "string",
+                            "minLength": 1,
+                            "example": "23 years"
+                        }
+                    }
+                }
+            },
+            "required": [
+                "email",
+                "update"
+            ]
+        },
+        "EMPLOYEE_DELETE_PAYLOAD_SCHEMA": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "pattern": ".+\\@.+\\..+",
+                    "maxLength": 75,
+                    "example": "example@mail.com"
+                }
+            },
+            "required": [
+                "email"
+            ]
+        },
+        "secret": "edureka-crud",
+        "auth_token_expiry": 3600
+    }
+}

@@ -1,0 +1,13 @@
+syntax: glob
+./node_modules
+./ng2-client/node_modules
+./**/node_modules
+./**/.nyc_output
+./**/coverage
+./**/*.log*
+./**/*.log
+./**/*.orig
+node_modules/
+.vs-code/
+logs/*.log
+logs/*.log*

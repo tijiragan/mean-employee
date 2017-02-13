@@ -1,0 +1,109 @@
+<md-sidenav-layout [class.m2app-dark]="isDarkTheme">
+    <md-sidenav #sidenav mode="over" class="app-sidenav">
+        <button class="app-icon-button app-icon-button-sidenav" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+        <span class="side-nav-title">Employee Directory</span>
+    </button>
+        <div class="logo-stash">
+            <pre><img src="../../assets/mongodb.png" class="img img-responsive" />          </pre>
+
+            <pre> <img src="../../assets/angular2.png" class="img img-responsive" /></pre>
+            <pre> <img src="../../assets/express.png" class="img img-responsive" /></pre>
+            <pre> <img src="../../assets/nodejs.png" class="img img-responsive" /></pre>
+        </div>
+        <pre>
+      <span>Created By</span>
+      <span>Arijit Nag</span>
+    </pre>
+        <small><span><a href="/api-docs" target="_blank">Api Documentation</a></span></small>
+    </md-sidenav>
+    <md-toolbar color="primary">
+        <div class="col-lg-3 col-sm-5 col-xs-6">
+            <button class="app-icon-button" (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu app-toolbar-menu-top">menu</i>
+      MEAN Employee
+    </button>
+        </div>
+        <!--<span class="app-toolbar-filler col-lg-7 col-xs-1"></span>-->
+        <div class="col-lg-2 col-lg-offset-7 col-md-2 col-md-offset-7 col-sm-3 col-sm-offset-4 col-xs-3">
+            <button md-button (click)="isDarkTheme = !isDarkTheme">TOGGLE THEME</button>
+        </div>
+    </md-toolbar>
+    <div class="app-content">
+        <md-card class="table-card">
+            <div class="row formDiv">
+                <form #employeeForm="ngForm" (ngSubmit)="addEmployee($event,employeeForm.value);employeeForm.reset()">
+                    <button md-button class="col-lg-1 col-md-1 col-sm-12 col-xs-12">Add Employee</button>
+                    <md-input class="col-lg-2 col-md-2 col-sm-12  col-xs-12" ngModel #name="ngModel" name="name" placeholder="Full name" required maxLength="50" dividerColor="{{ (!name.valid && name.touched) ? 'warn' : 'primary' }}">
+                        <md-hint *ngIf="!name.valid && name.touched" [ngStyle]="{'color': 'red'}" align="start">Employee name is required</md-hint>
+                    </md-input>
+                    <md-input class="col-lg-2 col-md-2 col-sm-12 col-xs-12" ngModel #email="ngModel" name="email" type="email" placeholder="Email" required pattern=".+\@.+\..+" dividerColor="{{ (!email.valid && email.touched) ? 'warn' : 'primary' }}">
+                        <!--<md-hint *ngIf="email.touched" [ngStyle]="{'color': 'red'}" align="start">Email is required</md-hint>-->
+                        <md-hint *ngIf="!email.valid && email.touched" [ngStyle]="{'color': 'red'}" align="start">example@mail.com</md-hint>
+                    </md-input>
+                    <md-input class="col-lg-2 col-md-2 col-sm-12  col-xs-12" ngModel #dept="ngModel" name="department" placeholder="Department" required dividerColor="{{ (!dept.valid && dept.touched) ? 'warn' : 'primary' }}">
+                        <md-hint *ngIf="!dept.valid && dept.touched" [ngStyle]="{'color': 'red'}" align="start">Department is required</md-hint>
+                    </md-input>
+                    <md-input class="col-lg-2 col-md-2 col-sm-12 col-xs-12" ngModel #dob="ngModel" name="dob" type="date" placeholder="Date of Birth" required pattern="^[0-9]{4}-[0-9]{2}-[0-9]{2}$" (keyup.enter)="calcAge(this.value)" required dividerColor="{{ (!dob.valid && dob.touched) ? 'warn' : 'primary' }}"
+                        min="1900-01-02" max="2010-12-31">
+                        <md-hint *ngIf="!dob.valid && dob.touched" [ngStyle]="{'color': 'red'}" align="start">Valid Date Of Birth is required</md-hint>
+                    </md-input>
+                    <md-select class="col-lg-1 col-md-2 col-sm-12 col-xs-12" placeholder="Select Gender" [(ngModel)]="selectedGender" name="gender">
+                        <md-option *ngFor="let gender of genders" [value]="gender.value">
+                            {{gender.viewValue}}
+                        </md-option>
+                    </md-select>
+                    <!--<md-hint *ngIf="!gender.valid && gender.touched" [ngStyle]="{'color': 'red'}" align="start">Gender is required</md-hint>-->
+                    <!--<md-select placeholder="Favorite food" [(ngModel)]="selectedGender" name="food">
+  </md-select>-->
+                    <button class="addButton col-lg-1 col-sm-offset-5 col-sm-2 col-xs-offset-6 col-xs-2" md-mini-fab type="submit"><md-icon>add</md-icon></button>
+                </form>
+            </div>
+            <!--<md-input placeholder="Filter all columns" [ngTableFiltering]="config.filtering" (tableChanged)="onChangeTable(config)"></md-input>
+    <ng-table [config]="config" (tableChanged)="onChangeTable(config)" (cellClicked)="onCellClick($event)" [rows]="rows" [columns]="columns">
+    </ng-table>
+    <pagination *ngIf="config.paging" class="pagination-sm" ngModel="page" [totalItems]="length" [itemsPerPage]="itemsPerPage"
+      [maxSize]="maxSize" [boundaryLinks]="true" [rotate]="false" (pageChanged)="onChangeTable(config, $event)" (numPages)="numPages = $event">
+    </pagination>-->
+            <!--<pre *ngIf="config.paging" class="card card-block card-header">Page: {{page}} / {{numPages}}</pre>
+
+  <br>
+  
+-->
+            <!--<md-progress-spinner style="margin:0 auto;position : fixed" mode="indeterminate"></md-progress-spinner>-->
+            <md-progress-bar class="progress-bar" *ngIf="restActive" [attr.color]="color" [mode]="mode">
+            </md-progress-bar>
+            <md-progress-bar class="progress-bar" *ngIf="!restActive" [attr.color]="color" [mode]="mode2" [value]="value">
+            </md-progress-bar>
+            <div class="row">
+                <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" (editConfirm)="onUpdateConfirm($event)"></ng2-smart-table>
+            </div>
+        </md-card>
+    </div>
+</md-sidenav-layout>
+<!--<table>
+  <thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Department</th>
+    <th>Dob</th>
+    <th>Gender</th>
+    <th>Age</th>
+     </thead>
+     <tbody>
+       <tr *ngFor="let item of data">
+         <td>{{item.name}}</td>
+         <td>{{item.email}}</td>
+         <td>{{item.department}}</td>
+         <td>{{item.dob}}</td>
+         <td>{{item.gender}}</td>
+         <td>{{item.age}}</td>
+         <td><button md-mini-fab style="background-color:green"><md-icon>check</md-icon></button></td>
+         <td><button md-mini-fab style="background-color:red"><md-icon>cross</md-icon></button></td>
+       </tr>
+     </tbody>
+<div ngFor let-item [ngForOf]="itemsList">
+
+    <div *ng-if="conditon(item)"></div>
+</div>
+</table>-->
